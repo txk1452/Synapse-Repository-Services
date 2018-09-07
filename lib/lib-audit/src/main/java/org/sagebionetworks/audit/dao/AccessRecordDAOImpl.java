@@ -65,6 +65,7 @@ public class AccessRecordDAOImpl implements AccessRecordDAO {
 			throw new IllegalArgumentException(
 					"bucketName has not been set and cannot be null");
 		// Create the bucket if it does not exist
+		System.out.println("auditRecordBucketName:" + auditRecordBucketName);
 		s3Client.createBucket(auditRecordBucketName);
 		objectCsvDao = new ObjectCSVDAO<AccessRecord>(s3Client, stackInstanceNumber, 
 				auditRecordBucketName, AccessRecord.class, HEADERS);
